@@ -3,7 +3,7 @@ export KUBECONFIG=$(find ~/kubeconfigs -type f | sed ':a;N;s/\n/:/;ba')
 ##########
 #  kctx  #
 ##########
-# requirements: fzf, awk, sed
+# requirements: kubectl, fzf, awk, sed
 kctx() {
 	GEN_EXTRA_OPTS=" --minify=true" # Extra options for config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
 
