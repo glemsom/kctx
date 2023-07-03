@@ -12,7 +12,7 @@ kctx() {
 	GEN_EXTRA_OPTS=" --minify=true" # Extra options for config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
 
 	# Select a new context
-	SELECTED_CTX=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl config get-contexts  --no-headers=true | sed 's/^\*/ /g' | fzf --header="Select context" --no-sort | awk '{print $1'})
+	SELECTED_CTX=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl config get-contexts  --no-headers=true | sed 's/^\*/ /g' | fzf -e --header="Select context" --no-sort | awk '{print $1'})
 
 	NEW_KUBECONFIG_CONTENT=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl --context "$SELECTED_CTX" config view $GEN_EXTRA_OPTS --raw)
 
