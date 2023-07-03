@@ -8,5 +8,5 @@ Copy the content of `bashrc-kctx` to your local ~/.basrc file - and adjust varia
 Ensure you have the requirements kubectl, sed, awk and fzf installed.
 
 ### Usage
-`kctx`
-And select the desired context
+`kctx`  
+Select the desired context by searching (just start typing), or use arrow-keys
