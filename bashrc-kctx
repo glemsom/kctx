@@ -4,11 +4,12 @@ export KUBECONFIG=$(find ~/kubeconfigs -type f | sed ':a;N;s/\n/:/;ba')
 #  kctx  #
 ##########
 # requirements: kubectl, fzf, awk, sed
+
+# Original kubeconfig
+ORIG_KUBECONFIG=$KUBECONFIG
+
 kctx() {
 	GEN_EXTRA_OPTS=" --minify=true" # Extra options for config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
-
-	# Original kubeconfig
-	ORIG_KUBECONFIG=$KUBECONFIG
 
 	# Select a new context
 	SELECTED_CTX=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl config get-contexts  --no-headers=true | sed 's/^\*/ /g' | fzf --header="Select context" --no-sort | awk '{print $1'})
