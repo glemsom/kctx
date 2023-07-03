@@ -16,7 +16,7 @@ export KUBECONFIG=$(find ~/kubeconfigs -type f | sed ':a;N;s/\n/:/;ba')
 
 # Save original kubeconfig variable
 ORIG_KUBECONFIG=$KUBECONFIG
-
+TMP_KUBECONFIG=/tmp/kctx-$$-kubeconfig
 kctx() {
 	GEN_EXTRA_OPTS=" --minify=true" # Extra options for kubectl config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
 
@@ -26,9 +26,9 @@ kctx() {
 	NEW_KUBECONFIG_CONTENT=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl --context "$SELECTED_CTX" config view $GEN_EXTRA_OPTS --raw)
 
 	# Create new kubeconfig for this shell
-	TMP_KUBECONFIG=/tmp/kctx-$$-kubeconfig
 	echo "$NEW_KUBECONFIG_CONTENT" > $TMP_KUBECONFIG
 
 	# Use shell specific kubeconfig
 	export KUBECONFIG=$TMP_KUBECONFIG
 }
+trap "rm -f $TMP_KUBECONFIG" exit
