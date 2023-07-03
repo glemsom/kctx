@@ -1,15 +1,24 @@
-export KUBECONFIG=$(find ~/kubeconfigs -type f | sed ':a;N;s/\n/:/;ba')
-
 ##########
 #  kctx  #
 ##########
-# requirements: kubectl, fzf, awk, sed
+# requirements: awk, sed, fzf and kubectl
 
-# Original kubeconfig
+# Test for requirements
+REQUIREMENTS="awk sed fzf kubectl"
+for REQUIREMENT in $REQUIREMENTS; do
+	command -v $REQUIREMENT 1>/dev/null || {
+		echo "Warning, requirement for kctx missing: $REQUIREMENT"
+	}
+done
+
+# export found kubeconfig files (replace as needed)
+export KUBECONFIG=$(find ~/kubeconfigs -type f | sed ':a;N;s/\n/:/;ba')
+
+# Save original kubeconfig variable
 ORIG_KUBECONFIG=$KUBECONFIG
 
 kctx() {
-	GEN_EXTRA_OPTS=" --minify=true" # Extra options for config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
+	GEN_EXTRA_OPTS=" --minify=true" # Extra options for kubectl config view. Use for example " --minify=true" to remove the non-selected contexts from tmp kubeconfig
 
 	# Select a new context
 	SELECTED_CTX=$(KUBECONFIG=$ORIG_KUBECONFIG kubectl config get-contexts  --no-headers=true | sed 's/^\*/ /g' | fzf -e --header="Select context" --no-sort | awk '{print $1'})
