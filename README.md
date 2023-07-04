@@ -1,6 +1,6 @@
 # kctx
 Simple BASH Kubernetes context switcher - used as a builtin BASH function.
-Adjust variables like `KUBECONFIG` and `GEN_EXTRA_OPTS` as needed
+Adjust variables like `KUBECONFIGDIR` and `GEN_EXTRA_OPTS` as needed
 
 ### Setup
 Copy the content of `bashrc-kctx` to your local ~/.bashrc file  
