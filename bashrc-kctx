@@ -10,8 +10,7 @@
 #               awk, sed, fzf and kubectl
 
 # Optional: 
-#               KUBECONFIGDIR: Set variable to folder with kubeconfigs to automatically generate
-#                              colon-delimited list for KUBECONFIG
+#               KUBECONFIGDIR: Set variable to folder with kubeconfigs to automatically generate colon-delimited list for KUBECONFIG
 #                              Reference: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable
 
 
