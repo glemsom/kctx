@@ -40,6 +40,7 @@ kctx() {
 
 	# Create new kubeconfig for this shell
 	echo "$NEW_KUBECONFIG_CONTENT" > "$TMP_KUBECONFIG"
+	chmod 600 "$TMP_KUBECONFIG"
 
 	# Use shell specific kubeconfig
 	export KUBECONFIG="$TMP_KUBECONFIG"
