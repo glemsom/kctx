@@ -10,6 +10,7 @@ Adjust variables like `KUBECONFIGDIR` and `GEN_EXTRA_OPTS` as needed.
 
 1: Clone repository
 `git clone https://github.com/glemsom/kctx.git ~/.kctx`
+
 2: Source kctx from your .bashrc
 `echo 'source ~/.kctx/bashrc-kctx' >> ~/.bashrc`
 
