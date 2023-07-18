@@ -2,7 +2,7 @@
 # kctx
 
 Simple BASH Kubernetes context switcher - used as a built-in BASH function.  
-Adjust variables like `KUBECONFIGDIR` and `GEN_EXTRA_OPTS` as needed.
+Adjust configuration in `~/.config/kctx/kctx.conf` as needed.
 
   
 
@@ -14,12 +14,11 @@ Adjust variables like `KUBECONFIGDIR` and `GEN_EXTRA_OPTS` as needed.
 2: Source kctx from your .bashrc  
 `echo 'source ~/.kctx/bashrc-kctx' >> ~/.bashrc`
 
-**Optional**: Set `KUBECONFIGDIR` variable to folder with kubeconfig files to automatically populate `KUBECONFIG`  
+**Recommended**: Place your kubeconfig files in `~/.config/kctx/kubeconfig.d` (By default the script will use those files to generate the `KUBECONFIG` variable)  
 See https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable for details
 
-**NOTE**: By default, the script will try and source kubeconfig files from `~/kubeconfigs`
-
-  
+**Optional**
+Adjust the GEN_EXTRA_OPTS variable in `~/.config/kctx/kctx.conf` as needed.
 
 ### Usage
 `kctx`  
