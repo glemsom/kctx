@@ -9,11 +9,6 @@
 # Requirements: 
 #               awk, sed, fzf and kubectl
 
-# Optional: 
-#               KUBECONFIGDIR: Set variable to folder with kubeconfigs to automatically generate colon-delimited list for KUBECONFIG
-#                              Default is ~/.config/kctx/kubeconfig.d
-#                              Reference: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#the-kubeconfig-environment-variable
-
 # Test for requirements
 REQUIREMENTS="awk sed fzf kubectl"
 for REQUIREMENT in $REQUIREMENTS; do
