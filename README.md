@@ -4,7 +4,9 @@
 Simple BASH Kubernetes context switcher - used as a built-in BASH function.  
 Adjust configuration in `~/.config/kctx/kctx.conf` as needed.
 
-  
+# Deprecated
+`kctx` has been deprecated in favor of `shell-ctx`
+https://github.com/glemsom/shell-ctx
 
 ### Setup
 
